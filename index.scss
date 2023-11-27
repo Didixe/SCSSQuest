@@ -1,0 +1,23 @@
+@mixin ring($size,$border, $margin, $box-shadow: null) {
+    width: $size;
+    height: $size;
+    border: $border;
+    border-radius: 50%;
+    margin: $margin ;
+    box-shadow: $box-shadow;
+  }
+  
+  .ring-0 {
+    @include ring(50px, 5px solid orange, 12px);
+  }
+  
+  .bigRing {
+    @include ring(100px, 8px solid yellow, 12px, 0 0 10px yellow);
+  }
+  
+  @for $i from 1 through 6 {
+    .ring-#{$i + 1} {
+      @include ring($i * 20px, 5px solid black, $i*-4px);
+    }
+  }
+  
